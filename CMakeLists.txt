@@ -32,6 +32,8 @@ cmake_policy(SET CMP0048 NEW)
 
 project(absl CXX)
 
+set(CMAKE_INSTALL_PREFIX "cmake_install")
+
 # when absl is included as subproject (i.e. using add_subdirectory(abseil-cpp))
 # in the source tree of a project that uses it, install rules are disabled.
 if(NOT "^${CMAKE_SOURCE_DIR}$" STREQUAL "^${PROJECT_SOURCE_DIR}$")
@@ -158,3 +160,6 @@ if(ABSL_ENABLE_INSTALL)
       PATTERN "*.h"
   )
 endif()  # ABSL_ENABLE_INSTALL
+
+include_directories("/home/henry.wu/src/abseil-cpp/")
+add_executable(hello_world hello_world.cc)
